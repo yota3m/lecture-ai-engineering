@@ -171,3 +171,21 @@ def test_model_reproducibility(sample_data, preprocessor):
     assert np.array_equal(
         predictions1, predictions2
     ), "モデルの予測結果に再現性がありません"
+
+
+
+def test_model_prediction_stability(train_model):
+    """（新規追加テスト）モデルの予測を10回繰り返し、精度の安定性を確認"""
+    model, X_test, y_test = train_model
+    accuracies = []#新規で追加
+
+    for _ in range(10):
+        y_pred = model.predict(X_test)
+        acc = accuracy_score(y_test, y_pred)
+        accuracies.append(acc)
+
+    max_acc = max(accuracies)
+    min_acc = min(accuracies)
+
+    # 精度差が0.01以内であれば「安定」と見なす
+    assert max_acc - min_acc < 0.01, f"予測精度にばらつきがあります: max={max_acc}, min={min_acc}"
