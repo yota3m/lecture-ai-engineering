@@ -1,7 +1,25 @@
+def say_hello(name):
+    p
 
-def say_hello(name):print("Hello,"+name+"!")   # greet
-def say_hello(name):print("Hello,"     +    name   +"!")   # greet
-def add( a,b):return a+b
-def add( a ,     b    ):return a+b
+
+rint("Hello," + name + "!")  # greet
+
+
+def say_hello(name):
+    p
+
+
+rint
+("Hello," + name + "!")  # greet
+
+
 def add(a, b):
-    return a+b
+    return a + b
+
+
+def add(a, b):
+    return a + b
+
+
+def add(a, b):
+    return a + b
